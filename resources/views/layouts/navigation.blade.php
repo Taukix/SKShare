@@ -1,7 +1,7 @@
-<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-gray-50 dark:bg-gray-800" aria-label="Sidebar" style="width: 20vw;height: 100vh">
-   <div class="h-5/6 flex flex-col items-start justify-start px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+<aside id="logo-sidebar" class="shadow-lg shadow-white rounded-r-lg fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-gray-50 dark:bg-gray-800" aria-label="Sidebar" style="width: 20vw;height: 100vh">
+   <div class="h-5/6 flex flex-col items-start justify-start px-3 py-4 overflow-y-auto">
       <a href="{{ route('dashboard') }}" class="flex justify-center items-center w-full mb-5 mt-6">
-         <img src="{{ asset('storage/images/Icon.svg') }}" class="lg:h-10 mr-3 sm:h-7 rounded-full" alt="Logo" />
+         <img src="{{ asset('storage/images/Icon.svg') }}" class="shadow-lg shadow-blue-500/50 lg:h-10 mr-3 sm:h-7 rounded-full" alt="Logo" />
          <span class="ml-2 lg:text-3xl sm:text-xl self-center font-semibold whitespace-nowrap dark:text-white">SKShare</span>
       </a>
       <ul class="w-full space-y-4 mt-6 font-medium text-xl">
@@ -19,7 +19,6 @@
          <li>
             <span class="dark:text-white pl-2 italic">Sneakers</span>
          </li>
-         <li>
 
          <li>
             <a href="{{ route('sneakers') }}" active="request()->routeIs('sneakers')" class="flex items-center justify-start pl-4 p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -38,12 +37,42 @@
                 <span class="ml-3">Ajouter des Sneakers</span>
             </a>
          </li>
+
+         <li>
+            <a id="categories-dropdown-button" class="flex items-center justify-start text-gray-900 rounded-lg dark:text-white">
+                <span class="dark:text-white pl-2 italic">Catégories</span>
+                <svg id="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 ml-4">
+                    <path fill-rule="evenodd" d="M4.72 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L11.69 12 4.72 5.03a.75.75 0 010-1.06zm6 0a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06L17.69 12l-6.97-6.97a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                </svg>
+            </a>
+            <ul id="categories-dropdown" style="display: none;" class="w-full">
+                <li class="pl-4 p-2 mt-4 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 w-full pl-8"><a href="{{ route('sneakers') }}">Toutes les sneakers</a></li>
+                <li class="pl-4 p-2 mt-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 w-full pl-8"><a href="{{ route('sneakers', ['category' => 'dunk']) }}">Dunk</a></li>
+                <li class="pl-4 p-2 mt-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 w-full pl-8"><a href="{{ route('sneakers', ['category' => 'Air Jordan Low']) }}">Air Jordan Low</a></li>
+                <li class="pl-4 p-2 mt-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 w-full pl-8"><a href="{{ route('sneakers', ['category' => 'Air Jordan High']) }}">Air Jordan High</a></li>
+                <li class="pl-4 p-2 mt-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 w-full pl-8"><a href="{{ route('sneakers', ['category' => 'Air Force']) }}">Air Force</a></li>
+                <li class="pl-4 p-2 mt-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 w-full pl-8"><a href="{{ route('sneakers', ['category' => 'Vans']) }}"></a>Vans</li>
+                <li class="pl-4 p-2 mt-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 w-full pl-8"><a href="{{ route('sneakers', ['category' => 'Nike Cortez']) }}"></a>Nike Cortez</li>
+                <li class="pl-4 p-2 mt-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 w-full pl-8"><a href="{{ route('sneakers', ['category' => 'New Balance']) }}"></a>New Balance</li>
+                <li class="pl-4 p-2 mt-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 w-full pl-8"><a href="{{ route('sneakers', ['category' => 'Adidas']) }}"></a>Adidas</li>
+                <li class="pl-4 p-2 mt-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 w-full pl-8"><a href="{{ route('sneakers', ['category' => 'Autre']) }}"></a>Autre</li>
+            </ul>
+        </li>
       </ul>
   </div>
-  <div class="h-1/6 flex items-center justify-around">
-    <button id="dropdownTopButton" data-dropdown-toggle="dropdownTop" data-dropdown-placement="top" class="mr-3 mb-3 md:mb-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 self-center" type="button">{{ Auth::user()->name }} <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-    </svg></button>
+  <div class="h-1/6 flex items-center justify-around border-t shadow">
+    @auth
+        <button id="dropdownTopButton" data-dropdown-toggle="dropdownTop" data-dropdown-placement="top" class="shadow-lg shadow-blue-500/50 mr-3 mb-3 md:mb-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 self-center" type="button">
+          {{ Auth::user()->name }} 
+          <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+          </svg>
+        </button>
+    @else
+        <a href="{{ route('login') }}" class="mr-3 mb-3 md:mb-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 self-center">
+          Se connecter
+        </a>
+    @endauth
 
     <div id="dropdownTop" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-36 dark:bg-gray-700">
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownTopButton">
@@ -72,3 +101,23 @@
 
   </div>
 </aside>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const categoriesDropdownButton = document.getElementById("categories-dropdown-button");
+        const categoriesDropdown = document.getElementById("categories-dropdown");
+        const dropdownIcon = document.getElementById("dropdown-icon");
+
+        categoriesDropdownButton.addEventListener("click", function () {
+            if (categoriesDropdown.style.display == "none") {
+                categoriesDropdown.style.display = "block";
+                dropdownIcon.classList.add("rotate-90");
+            } else {
+                categoriesDropdown.style.maxHeight = "0px";
+                categoriesDropdown.style.display = "none";
+                dropdownIcon.classList.remove("rotate-90");
+            }
+        });
+    });
+</script>
+

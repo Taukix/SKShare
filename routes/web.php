@@ -17,7 +17,7 @@ use App\Http\Controllers\DarkModeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('sneakers');
 });
 
 Route::get('/dashboard', function () {
@@ -28,17 +28,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/sneakers/create', [SneakerController::class, 'create'])->name('sneakers.create');
+    Route::post('/sneakers', [SneakerController::class, 'store'])->name('sneakers.store');
+    Route::delete('/sneakers/{sneaker}', [SneakerController::class, 'destroy'])->name('sneakers.destroy');
+    Route::post('/sneakers/{sneaker}/like', [SneakerController::class, 'like'])->name('sneakers.like');
+    Route::post('/sneakers/{sneaker}/dislike', [SneakerController::class, 'dislike'])->name('sneakers.dislike');
 });
 
 Route::get('/sneakers', [SneakerController::class, 'all'])->name('sneakers');
-Route::get('/sneakers/create', [SneakerController::class, 'create'])->name('sneakers.create');
-Route::post('/sneakers', [SneakerController::class, 'store'])->name('sneakers.store');
-Route::delete('/sneakers/{sneaker}', [SneakerController::class, 'destroy'])->name('sneakers.destroy');
-
 Route::get('/sneakers/{sneaker}', [SneakerController::class, 'show'])->name('sneakers.show');
-Route::post('/sneakers/{sneaker}/like', [SneakerController::class, 'like'])->name('sneakers.like');
-Route::post('/sneakers/{sneaker}/dislike', [SneakerController::class, 'dislike'])->name('sneakers.dislike');
-
 Route::post('/toggle-dark-mode', [DarkModeController::class, 'toggleDarkMode'])->name('toggle-dark-mode')->middleware('web');
 
 require __DIR__.'/auth.php';

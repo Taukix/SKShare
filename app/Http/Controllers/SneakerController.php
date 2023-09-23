@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sneaker;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class SneakerController extends Controller
 {
-    public function all() {
-        $sneakers = Sneaker::all();
-        return view('sneakers.allsneakers', compact('sneakers'));
+    public function all(Request $request) {
+        $category = $request->input('category');
+        $sneakers = Sneaker::query();
+        if ($category) {
+            $sneakers->where('category', $category);
+        }
+        $sneakers = $sneakers->paginate(10);
+        return view('sneakers.allsneakers', ['sneakers' => $sneakers]);
     }
 
     public function create() {
@@ -28,14 +34,14 @@ class SneakerController extends Controller
         $sneaker->description = $request->input('description');
         $sneaker->size = $request->input('size');
         $sneaker->price = $request->input('price');
-        $sneaker->categories = $request->input('categories');
+        $sneaker->category = $request->input('category');
         $sneaker->user_id = auth()->user()->id;
         
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/images', $imageName); // Cette ligne enregistre l'image dans le répertoire de stockage
+            $image->storeAs('public/images', $imageName);
             $sneaker->image = $imageName;
         }             
 

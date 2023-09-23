@@ -8,38 +8,54 @@
             <div class="w-100 mb-6">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100 text-center">
-                        <div class="grid grid-cols-2 gap-10">
-                            <form method="POST" action="{{ route('sneakers.store') }}" enctype="multipart/form-data">
-                                @csrf
-                                <div class="mb-8">
-                                    <label for="name" class="block text-gray-700 dark:text-gray-400 text-sm font-medium mb-2">Nom de la Sneaker</label>
-                                    <input type="text" name="name" id="name" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
-                                </div>
-                                <div class="mb-8">
-                                    <label for="description" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Description</label>
-                                    <textarea type="text" name="description" id="description" class="w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required maxlength="500"></textarea>
-                                </div>
-                                <div class="flex flex-row justify-between">
+                        <form method="POST" action="{{ route('sneakers.store') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="grid grid-cols-2 gap-10">
+                                <div>
                                     <div class="mb-8">
-                                        <label for="size" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Taille</label>
-                                        <input type="text" name="size" id="size" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
+                                        <label for="name" class="block text-gray-700 dark:text-gray-400 text-sm font-medium mb-2">Nom de la Sneaker</label>
+                                        <input type="text" name="name" id="name" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
                                     </div>
-                                    <span class="text-4xl font-bold mx-4 mt-6 mb-8">-</span>
                                     <div class="mb-8">
-                                        <label for="price" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Prix</label>
-                                        <input type="number" name="price" id="price" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
+                                        <label for="description" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Description</label>
+                                        <textarea type="text" name="description" id="description" class="w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required maxlength="500"></textarea>
+                                    </div>
+                                    <div class="flex flex-row justify-between">
+                                        <div class="mb-8">
+                                            <label for="size" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Taille</label>
+                                            <input type="text" name="size" id="size" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
+                                        </div>
+                                        <span class="text-4xl font-bold mx-4 mt-6 mb-8">-</span>
+                                        <div class="mb-8">
+                                            <label for="price" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Prix</label>
+                                            <input type="number" name="price" id="price" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-8">
+                                        <label for="category" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Catégorie</label>
+                                        <select name="category" id="category" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
+                                            <option value="Dunk">Dunk</option>
+                                            <option value="Air Jordan Low">Air Jordan Low</option>
+                                            <option value="Air Jordan High">Air Jordan High</option>
+                                            <option value="Air Force">Air Force</option>
+                                            <option value="Vans">Vans</option>
+                                            <option value="Nike Cortez">Nike Cortez</option>
+                                            <option value="New Balance">New Balance</option>
+                                            <option value="Adidas">Adidas</option>
+                                            <option value="Autre">Autre</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="shadow-lg shadow-blue-500/50 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50">Ajouter Sneaker</button>
+                                </div>
+                                <div class="grid grid-cols-1 justify-items-center h-full w-full">
+                                    <img id="image-preview" src="#" alt="Aperçu de l'image" class="w-full mb-8 hidden rounded">
+                                    <div class="mb-8">
+                                        <label for="image" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Image</label>
+                                        <input type="file" name="image" id="image" class="w-full border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
                                     </div>
                                 </div>
-                                <div class="mb-8">
-                                    <label for="image" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Image</label>
-                                    <input type="file" name="image" id="image" class="w-full border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
-                                </div>
-                                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50">Ajouter Sneaker</button>
-                            </form>
-                            <div class="flex justify-center items-center h-full w-full">
-                                <img id="image-preview" src="#" alt="Aperçu de l'image" class="w-full hidden rounded">
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
