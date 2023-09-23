@@ -37,7 +37,7 @@
                 Vos Sneakers
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
                 @foreach(auth()->user()->sneakers as $sneaker)
                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900 dark:text-gray-100">

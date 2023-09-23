@@ -16,5 +16,8 @@ class Sneaker extends Model
         'likes',
         'dislikes',
         'user_id',
+        'size',
+        'price',
+        'categories',
     ];
 }

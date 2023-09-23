@@ -1,6 +1,6 @@
 <x-app-layout>
     <h2 class="text-center mt-8 mb-8 font-semibold text-4xl text-gray-800 dark:text-white leading-tight">
-        Sneaker {{ $sneaker->name }} - {{ $sneaker->user->name }}
+        Sneaker {{ $sneaker->name }}
     </h2>
 
     <div class="container mx-auto w-100 sm:px-6 lg:px-8">
