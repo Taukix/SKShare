@@ -17,9 +17,4 @@ class Sneaker extends Model
         'dislikes',
         'user_id',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

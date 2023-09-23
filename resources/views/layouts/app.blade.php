@@ -20,7 +20,7 @@
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main class="absolute right-0" style="width: 80vw;">
+            <main class="absolute right-0 pb-8" style="width: 80vw;">
                 {{ $slot }}
             </main>
     </body>

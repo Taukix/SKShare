@@ -56,12 +56,16 @@ class SneakerController extends Controller
 
     public function like(Sneaker $sneaker) {
         $sneaker->increment('likes');
-        return redirect()->route('sneakers.show', $sneaker->id);
+        return back();
     }
 
     public function dislike(Sneaker $sneaker) {
         $sneaker->increment('dislikes');
-        return redirect()->route('sneakers.show', $sneaker->id);
+        return back();
     }
 
+    public function dashboard() {
+        $userSneakers = auth()->user()->sneakers;
+        return view('dashboard', compact('userSneakers'));
+    }
 }
