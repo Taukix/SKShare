@@ -6,8 +6,8 @@
             <div class="w-100 mb-6">
                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900 dark:text-gray-100 text-center">
-                            <h1 class="text-xl font-bold">Dashboard</h1>
-                            <p class="text-gray-600 dark:text-gray-400 mt-2">Welcome back, {{ Auth::user()->name }}!</p>
+                            <h1 class="text-xl font-bold">Tableau de bord</h1>
+                            <p class="text-gray-600 dark:text-gray-400 mt-2">De retour, {{ Auth::user()->name }}!</p>
                         </div>
                     </div>
             </div>
@@ -18,7 +18,7 @@
                 <div>
                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900 dark:text-gray-100 text-center">
-                            <h1 class="text-xl font-bold">Vans intéressants</h1>
+                            <h1 class="text-xl font-bold">Sneakers aimées</h1>
                             <p class="text-gray-600 dark:text-gray-400 mt-2">8</p>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                 <div>
                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900 dark:text-gray-100 text-center">
-                            <h1 class="text-xl font-bold">Vans loués</h1>
+                            <h1 class="text-xl font-bold">Sneakers publiées</h1>
                             <p class="text-gray-600 dark:text-gray-400 mt-2">7</p>
                         </div>
                     </div>
