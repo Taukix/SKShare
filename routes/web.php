@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/sneakers/create', [SneakerController::class, 'create'])->name('sneakers.create');
     Route::post('/sneakers', [SneakerController::class, 'store'])->name('sneakers.store');
     Route::delete('/sneakers/{sneaker}', [SneakerController::class, 'destroy'])->name('sneakers.destroy');
+    Route::get('/sneakers/{sneaker}/edit', [SneakerController::class, 'edit'])->name('sneakers.edit');
+    Route::put('/sneakers/{sneaker}', [SneakerController::class, 'update'])->name('sneakers.update');
     Route::post('/sneakers/{sneaker}/like', [SneakerController::class, 'like'])->name('sneakers.like');
     Route::post('/sneakers/{sneaker}/dislike', [SneakerController::class, 'dislike'])->name('sneakers.dislike');
 });

@@ -62,6 +62,34 @@ class SneakerController extends Controller
         }
     }
 
+    public function edit(Sneaker $sneaker) {
+        return view('sneakers.edit', compact('sneaker'));
+    }
+
+    public function update(Request $request, Sneaker $sneaker) {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $sneaker->name = $request->input('name');
+        $sneaker->description = $request->input('description');
+        $sneaker->size = $request->input('size');
+        $sneaker->price = $request->input('price');
+
+        if ($request->hasFile('image')) {
+            Storage::delete('public/images/' . $sneaker->image);
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/images', $imageName);
+            $sneaker->image = $imageName;
+        }             
+
+        $sneaker->save();
+
+        return redirect()->route('sneakers')->with('success', 'Sneaker modifiée avec succès!');
+    }
+
     public function show(Sneaker $sneaker) {
         return view('sneakers.show', compact('sneaker'));
     }

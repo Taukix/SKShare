@@ -39,17 +39,19 @@
 
             <div class="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
                 @foreach(auth()->user()->sneakers as $sneaker)
-                    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div class="p-6 text-gray-900 dark:text-gray-100">
-                            <img src="{{ asset('storage/images/' . $sneaker->image) }}" alt="{{ $sneaker->name }}" class="w-full h-52 rounded">
-                            <h2 class="text-2xl italic font-semibold mt-4">{{ $sneaker->name }}</h2>
-                            <p class="text-gray-600 dark:text-gray-400 mt-2">{{ $sneaker->created_at->format('d/m/Y') }}</p>
-                            <div class="flex flex-roxs justify-between">
-                                <p class="text-gray-600 dark:text-gray-400 mt-2">{{ $sneaker->price }} €</p>
-                                <p class="text-gray-600 dark:text-gray-400 mt-2">{{ $sneaker->size }}</p>
+                    <a href="{{ route('sneakers.show', $sneaker->id) }}">
+                        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                            <div class="p-6 text-gray-900 dark:text-gray-100">
+                                <img src="{{ asset('storage/images/' . $sneaker->image) }}" alt="{{ $sneaker->name }}" class="w-full h-52 rounded">
+                                <h2 class="text-2xl italic font-semibold mt-4">{{ $sneaker->name }}</h2>
+                                <p class="text-gray-600 dark:text-gray-400 mt-2">{{ $sneaker->created_at->format('d/m/Y') }}</p>
+                                <div class="flex flex-roxs justify-between">
+                                    <p class="text-gray-600 dark:text-gray-400 mt-2">{{ $sneaker->price }} €</p>
+                                    <p class="text-gray-600 dark:text-gray-400 mt-2">{{ $sneaker->size }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>
