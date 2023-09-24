@@ -1,17 +1,17 @@
 <x-app-layout>
-    <h2 class="text-center mt-8 mb-8 font-semibold text-4xl text-gray-800 dark:text-white leading-tight">
-        Sneaker {{ $sneaker->name }}
+    <h2 class="text-center m-8 font-semibold text-xl sm:text-4xl text-gray-800 dark:text-white leading-tight">
+        Sneaker {{ $sneaker->name }} de {{ $sneaker->user->name }}
     </h2>
 
-    <div class="container mx-auto w-100 sm:px-6 lg:px-8">
+    <div class="container mx-auto w-100 sm:px-6 lg:px-8 p-6">
         <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-            <div class="p-6 inline-grid grid-cols-2 items-center text-gray-900 dark:text-gray-100 w-full">
-                <div class="border-white border-2 w-full h-full bg-white flex items-center sm:rounded-lg">
+            <div class="p-6 grid sm:inline-grid grid-cols-1 sm:grid-cols-2  items-center text-gray-900 dark:text-gray-100 w-full">
+                <div class="border-white border-2 w-full h-full flex items-center sm:rounded-lg" style="background: rgb(248,248,248)">
                     <img src="{{ asset('storage/images/' . $sneaker->image) }}" alt="{{ $sneaker->name }}" class="w-full my-auto sm:rounded-lg">
                 </div>
                 <div class="flex flex-col justify-between justify-self-start w-full h-full sm:pl-6 lg:pl-8">
                     <div class="grid gap-4 w-full">
-                        <h2 class="lg:text-2xl sm:text-xl italic font-semibold">Description</h2>
+                        <h2 class="lg:text-2xl sm:text-xl italic font-semibold mt-6 sm:mt-0">Description</h2>
                         <p class="break-all lg:text-lg sm:text-sm text-gray-600 dark:text-gray-400 mt-2">{{ $sneaker->description }}</p>
                         <h2 class="lg:text-2xl sm:text-xl italic font-semibold">Date de création</h2>
                         <p class="lg:text-lg sm:text-sm text-gray-600 dark:text-gray-400 mt-2">{{ $sneaker->created_at->format('d/m/Y') }}</p>
@@ -65,7 +65,7 @@
         </div>
     </div>
     <div class="text-center mt-8 mb-6">
-        <a href="{{ route('sneakers') }}" class="shadow-lg shadow-blue-500/50 m-auto mt-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded">
+        <a href="{{ route('sneakers') }}" class="shadow-lg shadow-amber-400/50 m-auto mt-4 bg-amber-50 hover:bg-amber-200 text-black font-semibold py-2 px-4 rounded">
             Retour à la liste des sneakers
         </a>
     </div>

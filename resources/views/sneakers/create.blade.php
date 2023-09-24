@@ -4,13 +4,13 @@
     </h2>
 
     <div class="mt-6">
-        <div class="sm:px-6 lg:px-8">
+        <div class="px-6 lg:px-8">
             <div class="w-100 mb-6">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100 text-center">
                         <form method="POST" action="{{ route('sneakers.store') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="grid grid-cols-2 gap-10">
+                            <div class="grid lg:grid-cols-2 sm:grid-cols-1 gap-10">
                                 <div>
                                     <div class="mb-8">
                                         <label for="name" class="block text-gray-700 dark:text-gray-400 text-sm font-medium mb-2">Nom de la Sneaker</label>
@@ -31,7 +31,7 @@
                                             <input type="number" name="price" id="price" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
                                         </div>
                                     </div>
-                                    <div class="mb-8">
+                                    <div class="lg:mb-8 mb-0">
                                         <label for="category" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Catégorie</label>
                                         <select name="category" id="category" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
                                             <option value="Dunk">Dunk</option>
@@ -45,7 +45,6 @@
                                             <option value="Autre">Autre</option>
                                         </select>
                                     </div>
-                                    <button type="submit" class="shadow-lg shadow-blue-500/50 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50">Ajouter Sneaker</button>
                                 </div>
                                 <div class="grid grid-cols-1 justify-items-center h-full w-full">
                                     <img id="image-preview" src="#" alt="Aperçu de l'image" class="w-full mb-8 hidden rounded">
@@ -54,6 +53,7 @@
                                         <input type="file" name="image" id="image" class="w-full border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
                                     </div>
                                 </div>
+                                <button type="submit" class="shadow-lg shadow-blue-500/50 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50">Ajouter Sneaker</button>
                             </div>
                         </form>
                     </div>

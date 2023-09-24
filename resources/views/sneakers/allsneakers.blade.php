@@ -4,13 +4,13 @@
     </h2>
 
     <div class="mt-6">
-        <div class="sm:px-6 lg:px-8 grid lg:grid-cols-2 sm:grid-cols-1 gap-6">
+        <div class="sm:px-6 lg:px-8 grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-6 p-6">
             @foreach($sneakers as $sneaker)
             <a href="{{ route('sneakers.show', $sneaker->id) }}" class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6 text-gray-900 dark:text-gray-100 text-center">
-                <h3 class="lg:text-2xl sm:text-xl italic text-center font-semibold mb-6 h-1/6">{{ $sneaker->name }}</h3>
+                <h3 class="lg:text-2xl sm:text-xl text-sm italic text-center font-semibold mb-6 h-1/6">{{ $sneaker->name }}</h3>
                 <img src="{{ asset('storage/images/' . $sneaker->image) }}" alt="{{ $sneaker->name }}" class="sm:rounded-lg w-full h-4/6">
-                <div class="flex flex-row justify-between mt-4">
-                    <div class="flex justify-center items-center">
+                <div class="flex flex-row justify-between mt-4 sm:flex hidden">
+                    <div class="flex justify-center items-center lg:flex md:hidden">
                         <form method="POST" action="{{ route('sneakers.like', $sneaker->id) }}">
                             @csrf
                             <button type="submit" class="text-white py-2 rounded-md">

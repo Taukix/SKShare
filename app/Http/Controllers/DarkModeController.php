@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 
 class DarkModeController extends Controller
 {
-    public function toggleDarkMode(Request $request)
+    public function index()
     {
-        $darkMode = $request->session()->get('dark_mode', false);
+        $isDarkModeEnabled = session('dark_mode_enabled', false);
+        return view('my-view', compact('isDarkModeEnabled'));
+    }
 
-        $darkMode = !$darkMode;
-
-        $request->session()->put('dark_mode', $darkMode);
-
+    public function toggleDarkMode()
+    {
+        $isDarkModeEnabled = !session('dark_mode_enabled', false);
+        session(['dark_mode_enabled' => $isDarkModeEnabled]);
         return back();
     }
 }

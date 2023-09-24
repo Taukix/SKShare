@@ -20,4 +20,9 @@ class Sneaker extends Model
         'price',
         'categories',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

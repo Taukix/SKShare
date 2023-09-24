@@ -39,6 +39,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/sneakers', [SneakerController::class, 'all'])->name('sneakers');
 Route::get('/sneakers/{sneaker}', [SneakerController::class, 'show'])->name('sneakers.show');
-Route::post('/toggle-dark-mode', [DarkModeController::class, 'toggleDarkMode'])->name('toggle-dark-mode')->middleware('web');
+Route::post('/toggle-dark-mode', [DarkModeController::class, 'toggleDarkMode'])->name('toggle-dark-mode');
 
 require __DIR__.'/auth.php';

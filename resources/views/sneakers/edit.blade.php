@@ -9,13 +9,13 @@
                 @csrf
                 @method('PUT')
 
-                <div class="p-6 inline-grid grid-cols-2 items-center text-gray-900 dark:text-gray-100 w-full">
-                    <div class="border-white border-2 w-full h-full bg-white flex items-center sm:rounded-lg">
+                <div class="p-6 grid md:grid-cols-2 sm:grid-cols-1 items-center text-gray-900 dark:text-gray-100 w-full">
+                    <div class="border-white border-2 w-full h-full flex items-center sm:rounded-lg" style="background: rgb(248,248,248)">
                         <img src="{{ asset('storage/images/' . $sneaker->image) }}" alt="{{ $sneaker->name }}" class="w-full my-auto sm:rounded-lg">
                     </div>
                     <div class="flex flex-col justify-between justify-self-start w-full h-full sm:pl-6 lg:pl-8">
                         <div class="grid gap-4 w-full">
-                            <div class="lg:text-xl sm:text-lg italic font-semibold">
+                            <div class="lg:text-xl sm:text-lg italic font-semibold md:mt-0 mt-6">
                                 <label for="name">Nom</label>
                                 <input type="text" id="name" name="name" value="{{ $sneaker->name }}" class="text-gray-500 w-full p-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:border-blue-500 dark:focus:border-blue-500" required>
                             </div>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-8 mb-6">
-                    <button type="submit" class="shadow-lg shadow-blue-500/50 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded">
+                    <button type="submit" class="shadow-lg shadow-amber-500/50 bg-amber-50 hover:bg-amber-200 text-black font-semibold py-2 px-4 rounded">
                         Enregistrer les modifications
                     </button>
                 </div>
@@ -47,7 +47,7 @@
         </div>
     </div>
     <a href="{{ route('sneakers') }}">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-6 h-6 ml-8 rounded-full hover:bg-blue-500 p-1 mt-8 mb-6 w-8 h-8">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-white hover:fill-black w-6 h-6 ml-8 rounded-full hover:bg-amber-200 p-1 mt-8 mb-6 w-8 h-8">
             <path fill-rule="evenodd" d="M9.53 2.47a.75.75 0 010 1.06L4.81 8.25H15a6.75 6.75 0 010 13.5h-3a.75.75 0 010-1.5h3a5.25 5.25 0 100-10.5H4.81l4.72 4.72a.75.75 0 11-1.06 1.06l-6-6a.75.75 0 010-1.06l6-6a.75.75 0 011.06 0z" clip-rule="evenodd" />
         </svg>
     </a>
