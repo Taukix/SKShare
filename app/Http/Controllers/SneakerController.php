@@ -7,6 +7,7 @@ use App\Models\Sneaker;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class SneakerController extends Controller
 {
@@ -96,6 +97,14 @@ class SneakerController extends Controller
     }
 
     public function like(Sneaker $sneaker) {
+        if ($sneaker->user_id === Auth::user()->id) {
+            return back();
+        }
+
+        if (Auth::user()->likedSneakers->contains($sneaker)) {
+            return back()->with('error', 'Vous avez déjà aimé cette sneaker.');
+        }
+
         $sneaker->increment('likes');
         return back();
     }

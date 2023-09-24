@@ -25,4 +25,8 @@ class Sneaker extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function likedByUsers() {
+        return $this->belongsToMany(User::class, 'likes', 'sneaker_id', 'user_id')->withTimestamps();
+    }
 }

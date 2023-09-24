@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SneakerController;
 use App\Http\Controllers\DarkModeController;
+use App\Http\Controllers\DislikeController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
@@ -35,8 +37,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/sneakers/{sneaker}', [SneakerController::class, 'destroy'])->name('sneakers.destroy');
     Route::get('/sneakers/{sneaker}/edit', [SneakerController::class, 'edit'])->name('sneakers.edit');
     Route::put('/sneakers/{sneaker}', [SneakerController::class, 'update'])->name('sneakers.update');
-    Route::post('/sneakers/{sneaker}/like', [SneakerController::class, 'like'])->name('sneakers.like');
-    Route::post('/sneakers/{sneaker}/dislike', [SneakerController::class, 'dislike'])->name('sneakers.dislike');
+    Route::post('/sneakers/{sneaker}/like', [LikeController::class, 'like'])->name('sneakers.like');
+    Route::post('/sneakers/{sneaker}/dislike', [DislikeController::class, 'dislike'])->name('sneakers.dislike');
 });
 
 Route::get('/sneakers', [SneakerController::class, 'all'])->name('sneakers');
