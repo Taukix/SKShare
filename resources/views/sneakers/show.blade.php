@@ -1,7 +1,17 @@
 <x-app-layout>
-    <h2 class="text-center m-8 font-semibold text-xl sm:text-4xl text-gray-800 dark:text-white leading-tight">
-        Sneaker {{ $sneaker->name }} de {{ $sneaker->user->name }}
-    </h2>
+    <div class="flex flex-col sm:flex-row items-center justify-center w-full mx-auto m-6">
+        <h2 class="text-center mr-4 sm:mb-0 mb-6  font-semibold text-xl lg:text-2xl text-gray-800 dark:text-white leading-tight">
+            Sneaker {{ $sneaker->name }} -
+        </h2>
+        @if ($sneaker->user->profile_image !== null)
+            <img src="{{ asset('storage/' . $sneaker->user->profile_image) }}" alt="{{ $sneaker->name }}" class="w-16 rounded-full">
+        @else
+            <img src="{{ asset('storage/profile_images/Default.jpeg') }}" alt="{{ $sneaker->name }}" class="w-16 rounded-full">
+        @endif
+        <h2 class="text-center m-4 font-semibold text-xl sm:text-4xl text-gray-800 dark:text-white leading-tight">
+            {{ $sneaker->user->name }}
+        </h2>
+    </div>
 
     <div class="container mx-auto w-100 sm:px-6 lg:px-8 p-6">
         <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
