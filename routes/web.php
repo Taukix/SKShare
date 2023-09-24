@@ -41,6 +41,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::get('/sneakers', [SneakerController::class, 'all'])->name('sneakers');
 Route::get('/sneakers/{sneaker}', [SneakerController::class, 'show'])->name('sneakers.show');
+Route::get('/sneakers/rankings/likes', [SneakerController::class, 'rankingLikes'])->name('sneakers.rankings.likes');
+Route::get('/sneakers/rankings/users', [SneakerController::class, 'rankingUsers'])->name('sneakers.rankings.users');
 Route::post('/toggle-dark-mode', [DarkModeController::class, 'toggleDarkMode'])->name('toggle-dark-mode');
 
 require __DIR__.'/auth.php';

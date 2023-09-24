@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Sneaker;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class SneakerController extends Controller
 {
@@ -107,5 +108,17 @@ class SneakerController extends Controller
     public function dashboard() {
         $userSneakers = auth()->user()->sneakers;
         return view('dashboard', compact('userSneakers'));
+    }
+
+    public function rankingLikes(Sneaker $sneaker) {
+        $sneakers = DB::table('sneakers')
+            ->orderBy('likes', 'desc')
+            ->get();
+        return view('sneakers.rankings.Likes', compact('sneakers'));
+    }
+
+    public function rankingUsers() {
+        $users = User::with('sneakers')->get();
+        return view('sneakers.rankings.users', compact('users'));
     }
 }

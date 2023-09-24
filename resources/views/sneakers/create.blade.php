@@ -53,7 +53,7 @@
                                         <input type="file" name="image" id="image" class="w-full border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
                                     </div>
                                 </div>
-                                <button type="submit" class="shadow-lg shadow-blue-500/50 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:ring-opacity-50">Ajouter Sneaker</button>
+                                <button type="submit" class="shadow-lg shadow-amber-100/50 bg-amber-100 text-black py-2 px-4 rounded-md hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:ring-opacity-50">Ajouter Sneaker</button>
                             </div>
                         </form>
                     </div>
