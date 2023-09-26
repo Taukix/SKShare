@@ -97,7 +97,7 @@
   <div class="h-1/6 flex items-center justify-center border-t shadow">
     @auth
         @if (Auth::user()->profile_image !== null)
-            <img src="{{ asset('storage/images/ProfileImage.png') }}" alt="{{ Auth::user()->name }}'s Profile Image" class="w-14 rounded-full shadow-lg shadow-amber-100/50">
+            <img src="{{ asset('storage/' . Auth::user()->profile_image) }}" alt="{{ Auth::user()->name }}'s Profile Image" class="w-14 rounded-full shadow-lg shadow-amber-100/50">
         @else
             <img src="{{ asset('storage/profile_images/Default.jpeg') }}" alt="{{ Auth::user()->name }}'s Profile Image" class="w-14 rounded-full shadow-lg shadow-amber-100/50">
         @endif

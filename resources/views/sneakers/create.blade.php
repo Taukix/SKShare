@@ -14,16 +14,16 @@
                                 <div>
                                     <div class="mb-8">
                                         <label for="name" class="block text-gray-700 dark:text-gray-400 text-sm font-medium mb-2">Nom de la Sneaker</label>
-                                        <input type="text" name="name" id="name" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
+                                        <input type="text" name="name" id="name" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required maxlength="50">
                                     </div>
                                     <div class="mb-8">
                                         <label for="description" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Description</label>
-                                        <textarea type="text" name="description" id="description" class="w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required maxlength="500"></textarea>
+                                        <textarea type="text" name="description" id="description" class="w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required maxlength="150"></textarea>
                                     </div>
                                     <div class="flex flex-row justify-between">
                                         <div class="mb-8">
                                             <label for="size" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Taille</label>
-                                            <input type="text" name="size" id="size" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
+                                            <input type="number" name="size" id="size" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
                                         </div>
                                         <span class="text-4xl font-bold mx-4 mt-6 mb-8">-</span>
                                         <div class="mb-8">
