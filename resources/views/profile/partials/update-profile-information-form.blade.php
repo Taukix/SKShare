@@ -31,16 +31,16 @@
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
                     <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
-                        {{ __('Your email address is unverified.') }}
+                        {{ __('Votre adresse mail n\'est pas vérifié') }}
 
                         <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                            {{ __('Click here to re-send the verification email.') }}
+                            {{ __('Cliquez ici pour renvoyer un mail de vérification') }}
                         </button>
                     </p>
 
                     @if (session('status') === 'verification-link-sent')
                         <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
-                            {{ __('A new verification link has been sent to your email address.') }}
+                            {{ __('Un nouveau lien de vérification a été envoyé à votre adresse mail') }}
                         </p>
                     @endif
                 </div>
@@ -49,7 +49,7 @@
 
         <div>
             <x-input-label for="profile_image" :value="__('Photo de Profil')" />
-            <input id="profile_image" name="profile_image" type="file" class="mt-1 block w-full" accept="images/*" />
+            <input name="profile_image" class="block w-full mt-2 text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="profile_image" type="file" accept="images/*">
             <x-input-error class="mt-2" :messages="$errors->get('profile_image')" />
         </div>
 
@@ -64,7 +64,7 @@
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600 dark:text-gray-400"
-                >{{ __('Saved.') }}</p>
+                >{{ __('Enregistré.') }}</p>
             @endif
         </div>
     </form>
