@@ -7,7 +7,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class UserTakesFirstPlace
+class UserFirstSneaker
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 

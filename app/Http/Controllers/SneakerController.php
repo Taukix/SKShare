@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserFirstSneaker;
 use Illuminate\Http\Request;
 use App\Models\Sneaker;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Event;
 
 class SneakerController extends Controller
 {
@@ -45,9 +46,15 @@ class SneakerController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->storeAs('public/images', $imageName);
             $sneaker->image = $imageName;
-        }             
+        }         
 
         $sneaker->save();
+
+        $user = auth()->user();
+
+        if ($user->sneakers->count() == 1) {
+            Event::dispatch(new UserFirstSneaker($user));
+        }
 
         return redirect()->route('sneakers')->with('success', 'Sneaker ajoutée avec succès!');
     }

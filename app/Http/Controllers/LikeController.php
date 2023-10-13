@@ -14,7 +14,7 @@ class LikeController extends Controller
     public function like(Sneaker $sneaker)
     {
         $this->authorize('likeDislike', $sneaker);
-        
+
         if ($sneaker->likedByUsers->contains(Auth::user()->id)) {
             $like = Like::where('user_id', Auth::user()->id)->where('sneaker_id', $sneaker->id)->first();
             $like->delete();
@@ -30,7 +30,7 @@ class LikeController extends Controller
             $like->save();
             $sneaker->increment('likes');
 
-            $likes = $sneaker->likes; // Nombre total de likes
+            $likes = $sneaker->likes;
 
             return response()->json(['success' => true, 'likes' => $likes]);
         }

@@ -19,6 +19,7 @@
         }
         .content {
             padding: 20px;
+            text-align: center;
         }
         .footer {
             background-color: #121826;
@@ -35,7 +36,7 @@
         </div>
 
         <div class="content">
-            <p>Vous êtes maintenant en première place dans le classement des likes.</p>
+            <p>Votre première Sneaker a été ajoutée avec succès ! N'hésitez pas à en ajouter d'autres !</p>
             <p>Merci d'utiliser notre application.</p>
         </div>
 
