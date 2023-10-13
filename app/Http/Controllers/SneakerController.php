@@ -114,6 +114,9 @@ class SneakerController extends Controller
 
     public function rankingUsers() {
         $users = User::with('sneakers')->get();
+        $users = $users->sortByDesc(function ($user) {
+            return $user->sneakers->count();
+        });
         return view('sneakers.rankings.users', compact('users'));
     }
 }
