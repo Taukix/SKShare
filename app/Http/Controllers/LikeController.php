@@ -14,13 +14,15 @@ class LikeController extends Controller
     public function like(Sneaker $sneaker)
     {
         $this->authorize('likeDislike', $sneaker);
-
+        
         if ($sneaker->likedByUsers->contains(Auth::user()->id)) {
             $like = Like::where('user_id', Auth::user()->id)->where('sneaker_id', $sneaker->id)->first();
             $like->delete();
             $sneaker->decrement('likes');
 
-            return back()->with('success', 'Vous n\'aimez plus cette sneaker.');
+            $likes = $sneaker->likes;
+
+            return response()->json(['success' => true, 'likes' => $likes]);
         } else {
             $like = new Like();
             $like->user_id = Auth::user()->id;
@@ -28,17 +30,9 @@ class LikeController extends Controller
             $like->save();
             $sneaker->increment('likes');
 
-            $users = User::with('sneakers')->get();
-            $firstPlace = $users->sortByDesc(function ($user) {
-                return $user->sneakers->count();
-            })->first();
-            
-            if ($sneaker->user_id === $firstPlace->id) {
-                $user = User::find($firstPlace->id);
-                Event::dispatch(new UserTakesFirstPlace($user));
-            }
+            $likes = $sneaker->likes; // Nombre total de likes
 
-            return back()->with('success', 'Vous avez aimé cette sneaker.');
+            return response()->json(['success' => true, 'likes' => $likes]);
         }
     }
 }

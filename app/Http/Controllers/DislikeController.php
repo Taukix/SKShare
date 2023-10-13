@@ -18,7 +18,9 @@ class DislikeController extends Controller
             $dislike->delete();
             $sneaker->decrement('dislikes');
 
-            return back()->with('success', 'Vous n\'avez plus disliké cette sneaker.');
+            $dislikes = $sneaker->dislikes;
+
+            return response()->json(['success' => true, 'dislikes' => $dislikes]);
         } else {
             $dislike = new Dislike();
             $dislike->user_id = Auth::user()->id;
@@ -26,7 +28,9 @@ class DislikeController extends Controller
             $dislike->save();
             $sneaker->increment('dislikes');
 
-            return back()->with('success', 'Vous avez disliké cette sneaker.');
+            $dislikes = $sneaker->dislikes;
+
+            return response()->json(['success' => true, 'dislikes' => $dislikes]);
         }
     }
 }

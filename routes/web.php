@@ -35,8 +35,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/sneakers/{sneaker}', [SneakerController::class, 'destroy'])->name('sneakers.destroy');
     Route::get('/sneakers/{sneaker}/edit', [SneakerController::class, 'edit'])->name('sneakers.edit');
     Route::put('/sneakers/{sneaker}', [SneakerController::class, 'update'])->name('sneakers.update');
-    Route::post('/sneakers/{sneaker}/like', [LikeController::class, 'like'])->name('sneakers.like');
-    Route::post('/sneakers/{sneaker}/dislike', [DislikeController::class, 'dislike'])->name('sneakers.dislike');
+    Route::post('/api/sneakers/{sneaker}/like', [LikeController::class, 'like'])->name('sneakers.like');
+    Route::post('/api/sneakers/{sneaker}/dislike', [DislikeController::class, 'dislike'])->name('sneakers.dislike');
     Route::get('/sneakers/rankings/likes', [SneakerController::class, 'rankingLikes'])->name('sneakers.rankings.likes');
     Route::get('/sneakers/rankings/users', [SneakerController::class, 'rankingUsers'])->name('sneakers.rankings.users');
 });
