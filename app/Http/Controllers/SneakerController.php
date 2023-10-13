@@ -22,10 +22,14 @@ class SneakerController extends Controller
     }
 
     public function create() {
+        $this->authorize('connected', Auth::user());
+
         return view('sneakers.create');
     }
 
     public function store(Request $request) {
+        $this->authorize('connected', Auth::user());
+
         $request->validate([
             'name' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -53,6 +57,7 @@ class SneakerController extends Controller
     }
 
     public function destroy(Sneaker $sneaker) {
+        $this->authorize('delete', $sneaker);
 
         if (auth()->user()->id === $sneaker->user_id) {
             Storage::delete('public/images/' . $sneaker->image);
@@ -65,10 +70,13 @@ class SneakerController extends Controller
     }
 
     public function edit(Sneaker $sneaker) {
+        $this->authorize('update', $sneaker);
         return view('sneakers.edit', compact('sneaker'));
     }
 
     public function update(Request $request, Sneaker $sneaker) {
+        $this->authorize('update', $sneaker);
+
         $request->validate([
             'name' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -93,33 +101,34 @@ class SneakerController extends Controller
     }
 
     public function show(Sneaker $sneaker) {
+        $this->authorize('connected', Auth::user());
         return view('sneakers.show', compact('sneaker'));
     }
 
     public function like(Sneaker $sneaker) {
-        if ($sneaker->user_id === Auth::user()->id) {
-            return back();
-        }
-
-        if (Auth::user()->likedSneakers->contains($sneaker)) {
-            return back()->with('error', 'Vous avez déjà aimé cette sneaker.');
-        }
+        $this->authorize('like', $sneaker);
 
         $sneaker->increment('likes');
         return back();
     }
 
     public function dislike(Sneaker $sneaker) {
+        $this->authorize('dislike', $sneaker);
+
         $sneaker->increment('dislikes');
         return back();
     }
 
     public function dashboard() {
+        $this->authorize('connected', Auth::user());
+
         $userSneakers = auth()->user()->sneakers;
         return view('dashboard', compact('userSneakers'));
     }
 
     public function rankingLikes(Sneaker $sneaker) {
+        $this->authorize('connected', Auth::user());
+
         $sneakers = DB::table('sneakers')
             ->orderBy('likes', 'desc')
             ->get();
@@ -127,6 +136,8 @@ class SneakerController extends Controller
     }
 
     public function rankingUsers() {
+        $this->authorize('connected', Auth::user());
+
         $users = User::with('sneakers')->get();
         return view('sneakers.rankings.users', compact('users'));
     }
