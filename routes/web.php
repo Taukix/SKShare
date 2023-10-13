@@ -6,8 +6,6 @@ use App\Http\Controllers\SneakerController;
 use App\Http\Controllers\DarkModeController;
 use App\Http\Controllers\DislikeController;
 use App\Http\Controllers\LikeController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------

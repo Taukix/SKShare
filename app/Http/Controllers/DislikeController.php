@@ -11,21 +11,22 @@ class DislikeController extends Controller
 {
     public function dislike(Sneaker $sneaker)
     {
-        if ($sneaker->user_id === Auth::user()->id) {
-            return back()->with('error', 'Vous ne pouvez pas ne pas aimer vos propres sneakers.');
+        $this->authorize('likeDislike', $sneaker);
+
+        if ($sneaker->dislikedByUsers->contains(Auth::user()->id)) {
+            $dislike = Dislike::where('user_id', Auth::user()->id)->where('sneaker_id', $sneaker->id)->first();
+            $dislike->delete();
+            $sneaker->decrement('dislikes');
+
+            return back()->with('success', 'Vous n\'avez plus disliké cette sneaker.');
+        } else {
+            $dislike = new Dislike();
+            $dislike->user_id = Auth::user()->id;
+            $dislike->sneaker_id = $sneaker->id;
+            $dislike->save();
+            $sneaker->increment('dislikes');
+
+            return back()->with('success', 'Vous avez disliké cette sneaker.');
         }
-
-        if (DisLike::where('user_id', Auth::user()->id)->where('sneaker_id', $sneaker->id)->exists()) {
-            return back()->with('error', 'Vous avez déjà pas aimé cette sneaker.');
-        }
-
-        $like = new DisLike();
-        $like->user_id = Auth::user()->id;
-        $like->sneaker_id = $sneaker->id;
-        $like->save();
-
-        $sneaker->increment('dislikes');
-
-        return back()->with('success', 'Vous n\'avez pas aimé cette sneaker.');
     }
 }
