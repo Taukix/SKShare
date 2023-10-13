@@ -22,14 +22,10 @@ class SneakerController extends Controller
     }
 
     public function create() {
-        $this->authorize('connexion', Sneaker::class);
-
         return view('sneakers.create');
     }
 
     public function store(Request $request) {
-        $this->authorize('connexion', Sneaker::class);
-
         $request->validate([
             'name' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -105,15 +101,11 @@ class SneakerController extends Controller
     }
 
     public function dashboard() {
-        $this->authorize('connexion', Sneaker::class);
-
         $userSneakers = auth()->user()->sneakers;
         return view('dashboard', compact('userSneakers'));
     }
 
     public function rankingLikes(Sneaker $sneaker) {
-        $this->authorize('connexion', $sneaker);
-
         $sneakers = DB::table('sneakers')
             ->orderBy('likes', 'desc')
             ->get();
@@ -121,8 +113,6 @@ class SneakerController extends Controller
     }
 
     public function rankingUsers() {
-        $this->authorize('connexion', Sneaker::class);
-
         $users = User::with('sneakers')->get();
         return view('sneakers.rankings.users', compact('users'));
     }
