@@ -14,14 +14,15 @@ class SneakerController extends Controller
 {
     public function all(Request $request) {
         $category = $request->input('category');
-        $sneakers = Sneaker::query();
-    
+        
+        $sneakers = Sneaker::with('likedByUsers', 'dislikedByUsers')
+                    ->orderBy('created_at', 'desc');
+
         if ($category) {
             $sneakers->where('category', $category);
         }
-    
-        $sneakers = $sneakers->orderBy('created_at', 'desc')->paginate(10);
-    
+
+        $sneakers = $sneakers->paginate(10);
         return view('sneakers.allsneakers', ['sneakers' => $sneakers]);
     }
 
