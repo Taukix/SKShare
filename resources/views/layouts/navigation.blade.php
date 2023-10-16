@@ -24,6 +24,7 @@
             </button>
         </div>
         <ul class="w-full space-y-4 mt-6 font-medium text-xl">
+            @auth
             <li>
                <a href="{{ route('dashboard') }}" active="request()->routeIs('dashboard')" class="flex items-center justify-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                   <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
@@ -33,7 +34,7 @@
                   <span class="ml-3">Tableau de Bord</span>
                </a>
             </li>
-            <li>
+            @endauth
             <li>
                <span class="dark:text-amber-100 text-black pl-2 italic">Sneakers</span>
             </li>
@@ -45,6 +46,7 @@
                    <span class="ml-3">Toutes les Sneakers</span>
                </a>
             </li>
+            @auth
             <li>
                <a href="{{ route('sneakers.create') }}" active="request()->routeIs('sneakers.create')" class="flex items-center justify-start pl-4 p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-400">
@@ -72,6 +74,7 @@
                     <span class="ml-3">Classement des utilisateurs</span>
                 </a>
             </li>
+            @endauth
             <li>
                <a id="categories-dropdown-button" class="flex items-center justify-start text-gray-900 rounded-lg dark:text-white">
                    <span class="dark:text-amber-100 text-black pl-2 italic">Catégories</span>

@@ -35,6 +35,20 @@
                                 <label for="image">Image</label>
                                 <input type="file" id="image" name="image" accept="image/*" class="text-gray-500 w-full p-2 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:border-blue-500 dark:focus:border-blue-500">
                             </div>
+                            <div class="lg:mb-8 mb-0">
+                                <label for="category" class="block text-gray-600 dark:text-gray-400 text-sm font-medium mb-2">Catégorie</label>
+                                <select name="category" id="category" class="text-center w-full text-gray-800 border-gray-300 dark:border-gray-600 focus:border-indigo-300 dark:focus:border-indigo-700 rounded-md shadow-sm" required>
+                                    <option value="Dunk">Dunk</option>
+                                    <option value="Air Jordan Low">Air Jordan Low</option>
+                                    <option value="Air Jordan High">Air Jordan High</option>
+                                    <option value="Air Force">Air Force</option>
+                                    <option value="Vans">Vans</option>
+                                    <option value="Nike Cortez">Nike Cortez</option>
+                                    <option value="New Balance">New Balance</option>
+                                    <option value="Adidas">Adidas</option>
+                                    <option value="Autre">Autre</option>
+                                </select>
+                            </div> 
                         </div>
                     </div>
                 </div>

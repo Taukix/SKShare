@@ -32,6 +32,7 @@
                     </div>
                     <div class="inline-flex items-center justify-between w-full mt-6">
                         <div class="flex justify-center items-center">
+                            @auth
                             <div class="like-button" data-sneaker-id="{{ $sneaker->id }}">
                                 @if ($sneaker->likedByUsers->contains(auth()->user()->id))
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hover:text-amber-200 like-icon-active">
@@ -56,7 +57,9 @@
                                     </svg>
                                 @endif
                             </div>
+                            @endauth
                         </div>
+                        @auth
                         @if(auth()->user() && auth()->user()->id === $sneaker->user_id)
                             <div class="inline-flex items-center justify-center">
                                 <a href="{{ route('sneakers.edit', $sneaker->id) }}" class="text-yellow-600 hover:text-yellow-800 mr-8">
@@ -75,6 +78,7 @@
                                 </form>
                             </div>
                         @endif
+                        @endauth
                     </div>
                 </div>
             </div>
