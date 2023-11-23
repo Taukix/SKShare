@@ -1,4 +1,4 @@
-# SKShare - Plateforme de Partage de Sneakers avec Laravel & Docker
+# SKShare - Site de Partage de Sneakers avec Laravel & Docker
 
 Voici SKShare ! Un site Web construit avec Laravel et Docker, dédiée au partage de collections de sneakers. SKShare permet aux utilisateurs de présenter leurs sneakers et de découvrir les collections d'autres passionnés. Voici un aperçu des fonctionnalités de la plateforme :
 
@@ -95,5 +95,7 @@ Les fonctionnalités de like/dislike et les classements dans SKShare montrent ma
 ### Expression et communication écrites et orales :
 
 La communication orale lors de la présentation finale ont mis en lumière mes compétences en expression orale. Expliquer les choix de conception, les défis rencontrés, et les fonctionnalités implémentées ont exigé une communication claire et concise.
+
+---
 
 En conclusion, le développement de SKShare a été une expérience riche qui a renforcé mes compétences en développement d'applications, gestion de données, utilisation d'outils numériques, exploitation de données à des fins d'analyse, ainsi qu'en expression et communication écrites et orales. Ces compétences constituent un socle solide pour aborder de futurs projets dans le domaine du développement Web.
