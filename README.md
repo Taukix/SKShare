@@ -1,66 +1,99 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SKShare - Plateforme de Partage de Sneakers avec Laravel & Docker
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Voici SKShare ! Un site Web construit avec Laravel et Docker, dédiée au partage de collections de sneakers. SKShare permet aux utilisateurs de présenter leurs sneakers et de découvrir les collections d'autres passionnés. Voici un aperçu des fonctionnalités de la plateforme :
 
-## About Laravel
+## Fonctionnalités Principales
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Partie Publique
+- Présentation de Sneakers : Les utilisateurs peuvent partager leurs collections de sneakers avec le monde entier, en affichant des informations détaillées sur chaque paire.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Partie Privée - Dashboard
+- Espace Personnel : Chaque utilisateur dispose d'un tableau de bord personnel, offrant un aperçu de sa collection, des statistiques, et des activités récentes.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Formulaires
+- Ajout de Sneakers : Les utilisateurs peuvent facilement ajouter de nouvelles sneakers à leur collection via des formulaires intuitifs.
 
-## Learning Laravel
+### Pagination
+- Navigation Facilitée : La pagination est implémentée pour permettre une navigation fluide à travers les collections, les classements, et les événements.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### CRUD (Create, Read, Update, Delete)
+- Gestion de la Collection : Les utilisateurs peuvent effectuer des opérations CRUD sur leurs sneakers, offrant une flexibilité totale dans la gestion de leur collection.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Events/List
+- Les utilisateurs reçoivent un mail de félicitation lors de l'ajout de leur première paire.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Policies
+- Des policies sont mises en place afin d'éviter d'avoir accès à certaines pages lorsque l'on est pas connecté et afin d'éviter qu'un utilisateur puisse modifier, supprimer la sneaker d'un autre.
 
-## Laravel Sponsors
+### Système de Like/Dislike
+- Classements : Les utilisateurs peuvent attribuer des likes ou dislikes à d'autres sneakers, générant ainsi des classements pour les utilisateurs et les sneakers les plus populaires.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Technologies Utilisées
+- Laravel : Utilisé comme le framework principal pour le développement du site.
+- Docker : Pour l'orchestration des conteneurs, garantissant un déploiement cohérent et efficace.
+- MySQL : La base de données relationnelle utilisée pour stocker les informations sur les sneakers, les utilisateurs, les classements, etc.
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/Taukix/SKShare/blob/main/ReadMe_Images/Dashboard.png" width="49%">
+    <img src="https://github.com/Taukix/SKShare/blob/main/ReadMe_Images/All.png" width="49%">
+</div>
 
-## Contributing
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/Taukix/SKShare/blob/main/ReadMe_Images/Add.png" width="49%">
+    <img src="https://github.com/Taukix/SKShare/blob/main/ReadMe_Images/Read.png" width="49%">
+</div>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/Taukix/SKShare/blob/main/ReadMe_Images/SnkRank.png" width="49%">
+    <img src="https://github.com/Taukix/SKShare/blob/main/ReadMe_Images/UserRank.png" width="49%">
+</div>
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Installation et Exécution
 
-## Security Vulnerabilities
+Clônez le repository sur votre machine locale.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+git clone https://github.com/votre-utilisateur/skshare.git
+```
 
-## License
+Assurez-vous que Docker est installé sur votre système.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Exécutez les conteneurs Docker.
+
+```
+docker-compose up -d
+```
+
+Accédez au site à l'adresse `http://localhost` dans votre navigateur.
+
+---
+
+## Compétences
+
+À travers le développement de SKShare avec Laravel & Docker, j'ai consolidé un ensemble de compétences clés, couvrant divers aspects du développement d'applications et de la gestion de projet. Voici comment je peux exprimer ces compétences spécifiques :
+
+### Réaliser un développement d’application
+
+La conception et la mise en œuvre complètes de SKShare témoignent de ma capacité à réaliser des développements d'applications de bout en bout. L'utilisation de Laravel comme framework principal a renforcé ma compréhension des principes de conception et de développement MVC.
+
+### Gérer des données de l’information :
+
+La gestion des données dans SKShare, notamment avec l'utilisation d'une base de données MySQL, a développé ma compétence dans la structuration, la manipulation, et la gestion efficace des informations liées aux sneakers et aux utilisateurs.
+
+### Usages des outils numériques :
+
+L'utilisation de Docker pour orchestrer les conteneurs démontre ma maîtrise des outils numériques modernes pour simplifier le déploiement et garantir une cohérence environnementale. Cela souligne ma capacité à intégrer des technologies variées pour construire des solutions robustes.
+
+### Exploitation de données à des fins d’analyse :
+
+Les fonctionnalités de like/dislike et les classements dans SKShare montrent ma compétence à exploiter les données pour obtenir des informations significatives. L'analyse des classements des sneakers et des utilisateurs offre des perspectives précieuses pour améliorer l'expérience utilisateur.
+
+### Expression et communication écrites et orales :
+
+La communication orale lors de la présentation finale ont mis en lumière mes compétences en expression orale. Expliquer les choix de conception, les défis rencontrés, et les fonctionnalités implémentées ont exigé une communication claire et concise.
+
+En conclusion, le développement de SKShare a été une expérience riche qui a renforcé mes compétences en développement d'applications, gestion de données, utilisation d'outils numériques, exploitation de données à des fins d'analyse, ainsi qu'en expression et communication écrites et orales. Ces compétences constituent un socle solide pour aborder de futurs projets dans le domaine du développement Web.
